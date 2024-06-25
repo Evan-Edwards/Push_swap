@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void ft_push(t_stack **a, t_stack **b)
+void ft_pa(t_stack **a, t_stack **b)
 {
     t_stack *temp;
     
@@ -8,10 +8,15 @@ void ft_push(t_stack **a, t_stack **b)
         return ;
     temp = *a;
     *a = (*a)->next;
-    (*a)->prev = NULL;
-    ft_set_indexes(a);
     temp->next = *b;
-    temp->prev = NULL;
     *b = temp;
-    ft_set_indexes(b);
+    ft_set_index(a);
+    ft_set_index(b);
+    ft_set_prev(a);
+    ft_set_prev(b);
+}
+
+void    ft_pb(t_stack **a, t_stack **b)
+{
+    ft_pa(b, a);
 }

@@ -27,24 +27,19 @@ void	ft_stackclear(t_stack **lst)
 	}
 }
 
-void	ft_stackadd_back(t_stack **lst, t_stack *new)
+int	ft_stacksize(t_stack *lst)
 {
-	t_stack	*tmp;
+	int		nodes;
+	t_stack	*current;
 
-	if (!new)
-		return ;
-	if (!*lst)
+	current = lst;
+	nodes = 0;
+	while (current)
 	{
-		*lst = new;
-		return ;
+		current = current->next;
+		nodes++;
 	}
-	tmp = *lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	if (!tmp)
-		tmp = new;
-	else
-		tmp->next = new;
+	return (nodes);
 }
 
 void	ft_stackadd_front(t_stack **lst, t_stack *new)

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    set_index(t_stack **a)
+void    ft_set_index(t_stack **a)
 {
     int index;
     t_stack *i;
@@ -15,7 +15,7 @@ void    set_index(t_stack **a)
     }
 }
 
-void    set_prev(t_stack **a)
+void    ft_set_prev(t_stack **a)
 {
     t_stack *i;
 

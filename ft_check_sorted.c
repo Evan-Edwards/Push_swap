@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-//checks if sorted
+//checks if sorted, returns 1 if sorted
 int ft_check_sorted(t_stack *a)
 {
     while (a->next)
