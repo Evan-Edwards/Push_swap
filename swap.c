@@ -19,3 +19,8 @@ void ft_sa(t_stack **a)
         (*a)->next->next->prev = (*a)->next;
 }
 
+void    ft_sb(t_stack **b)
+{
+    ft_sa(b);
+}
+

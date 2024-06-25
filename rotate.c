@@ -1,19 +1,30 @@
 #include "push_swap.h"
 
-void    ft_rotate(t_stack **a)
+void    ft_ra(t_stack **a)
 {
-    t_stack *temp1;
-    t_stack *temp2;
+    t_stack *new_last;
+    t_stack *i;
 
     if (*a == NULL || (*a)->next == NULL)
         return ;
-    temp1 = *a;
+    new_last = *a;
     *a = (*a)->next;
-    (*a)->prev = NULL;
-    temp2 = *a;
-    while (temp2->next != NULL)
-        temp2 = temp2->next;
-    temp2->next = temp1;
-    temp1->prev = temp2;
-    temp1->next = NULL;
+    i = *a;
+    while (i->next != NULL)
+        i = i->next;
+    i->next = new_last;
+    new_last->next = NULL;
+    ft_set_index(a);
+    ft_set_prev(a);
+}
+
+void ft_rb(t_stack **b)
+{
+    ft_ra(b);
+}
+
+void ft_rr(t_stack **a, t_stack **b)
+{
+    ft_ra(a);
+    ft_ra(b);
 }
