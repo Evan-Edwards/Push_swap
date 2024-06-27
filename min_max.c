@@ -1,35 +1,31 @@
 #include "push_swap.h"
 
-int ft_min(t_stack **a)
+int ft_min(t_stack *a)
 {
     int     min;
-    t_stack *temp;
-
-    temp = *a;
-    min = temp->nbr;
-    temp = temp->next;
-    while (temp)
+    
+    min = a->nbr;
+    a = a->next;
+    while (a)
     {
-        if (min > temp->nbr)
-            min = temp->nbr;
-        temp = temp->next;
+        if (min > a->nbr)
+            min = a->nbr;
+        a = a->next;
     }
     return (min);
 }
 
-int ft_max(t_stack **a)
+int ft_max(t_stack *a)
 {
     int     max;
-    t_stack *temp;
 
-    temp = *a;
-    max = temp->nbr;
-    temp = temp->next;
-    while (temp)
+    max = a->nbr;
+    a = a->next;
+    while (a)
     {
-        if (max < temp->nbr)
-            max = temp->nbr;
-        temp = temp->next;
+        if (max < a->nbr)
+            max = a->nbr;
+        a = a->next;
     }
     return (max);
 }

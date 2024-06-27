@@ -6,26 +6,22 @@ int		ft_list_args(char **argv, t_stack **a)
     int     i;
 
     new = NULL;
-    if (!(check_valid(argv)))
+    if (check_valid(argv) == 0)
             return (0);
     while (argv[i])
     {
         while (*argv[i])
         {
-            new = ft_stacknew(ft_atoi(&*argv[i]));
+            new = ft_stacknew(ft_atoi2(&*argv[i]));//need to make another t_stack var?
             if (new = NULL)
             {
                 ft_stackclear(a);
                 return (0);
             }
-            if (new->nbr < (*a)->nbr) //necessary? Should be same outcome
-                ft_stackadd_front(a, new);
-            else
-                ft_stackadd_back(a, new);
+            ft_stackadd_back(a, new);
         }
         i++;
     }
-    set_index(a);
     if (ft_check_doubles(a) == 0)
     {
         ft_stackclear(a);
@@ -34,6 +30,8 @@ int		ft_list_args(char **argv, t_stack **a)
     return (1);
 }
 
+//checks if there if doubles in the stack, returns 1 if no
+//doubles found
 int ft_check_doubles (t_stack **a)
 {
     int     check;
@@ -41,11 +39,12 @@ int ft_check_doubles (t_stack **a)
     t_stack *temp2;
 
     temp = *a;
+    ft_set_index(a);
     while (temp)
     {
         check = temp->nbr;
         temp2 = *a;
-        while (temp2)//also check it's not the same index
+        while (temp2)
         {
             if (temp2->nbr == check && temp->index != temp2->index)
                 return (0);
@@ -89,7 +88,9 @@ int	ft_atoi2(char **str)
     return ((int)(result * sign));
 }
 
-//check that number, space, or -/+
+//goes through every character of every arguement to check
+//that each chacter is number, space, or -/+, and that if there
+//is a i/+ there is a number after it
 int    check_valid(char **arg)
 {
     int i;

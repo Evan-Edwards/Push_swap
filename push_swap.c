@@ -25,15 +25,12 @@ void    ft_sort(t_stack **a, t_stack **b)
 {
     if (ft_check_sorted(*a) == 1)
         return ;
-    if ((ft_stacklast(a))->index == 1)
+    else if ((ft_stacklast(a))->index == 1)
         ft_sa(a);
-    if ((ft_stacklast(a))->index == 2)
+    else if ((ft_stacklast(a))->index == 2)
         ft_sort3(a);
-    if ((ft_stacklast(a))->index == 3)
-        ft_sort4(a);
-    if ((ft_stacklast(a))->index == 4)
-        ft_sort5(a);
-    if ((ft_stacklast)->index > 4)
+    else if ((ft_stacklast(a))->index > 2)
+        ft_sort_big(a);
 }
 
 

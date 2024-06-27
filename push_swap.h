@@ -24,15 +24,29 @@ int		ft_list_args(char **argv, t_stack **a);
 
 
 int     ft_check_sorted(t_stack *a);
+int     ft_find_index(t_stack *a, int nbr);
 int     ft_find_place_a(t_stack *a, int nbr);
 int     ft_find_place_b(t_stack *b, int nbr);
-int     ft_max(t_stack **a);
+int     ft_max(t_stack *a);
 void    ft_max_to_top(t_stack **b);
-int     ft_min(t_stack **a);
+int     ft_min(t_stack *a);
 void    ft_min_to_top(t_stack **a);
 void    ft_set_index(t_stack **a);
 void    ft_set_prev(t_stack **a);
 
+int     ft_moves_rarb(t_stack *a, t_stack *b, int c);
+int     ft_moves_rarrb(t_stack *a, t_stack *b, int c);
+int     ft_moves_rrarb(t_stack *a, t_stack *b, int c);
+int     ft_moves_rrarrb(t_stack *a, t_stack *b, int c);
+int     ft_moves_rarb_a(t_stack *a, t_stack *b, int c);
+int     ft_moves_rarrb_a(t_stack *a, t_stack *b, int c);
+int     ft_moves_rrarb_a(t_stack *a, t_stack *b, int c);
+int     ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c);
+
+void    ft_apply_rarb(t_stack **a, t_stack **b, int c, char s);
+void    ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
+void    ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
+void    ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
 
 void    ft_pa(t_stack **a, t_stack **b);
 void    ft_pb(t_stack **a, t_stack **b);

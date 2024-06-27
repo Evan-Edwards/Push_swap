@@ -2,6 +2,7 @@
 
 int ft_find_index(t_stack *a, int nbr)
 {
+    ft_set_index(a);
     while (a)
     {
         if (nbr == a->nbr)
