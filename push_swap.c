@@ -1,7 +1,9 @@
 #include "push_swap.h"
 
-
-void    push_swap(int argc, char **argv)
+//main function, takes the arguements given and checks if valid
+//It then puts the arguments in t_stack a and calls the ft_sort
+//to sort.
+void    ft_push_swap(int argc, char **argv)
 {
     t_stack *a;
     t_stack *b;
@@ -13,6 +15,11 @@ void    push_swap(int argc, char **argv)
     }
     a = NULL;
     b = NULL;
+    if (check_valid(argv) == 0)
+    {
+        write (1, "Error\n", 6);
+        return ;
+    }
     if (list_args(argv, &a) == 0)
     {
         write (1, "Error\n", 6);
@@ -21,17 +28,6 @@ void    push_swap(int argc, char **argv)
     ft_sort(&a, &b);
 }
 
-void    ft_sort(t_stack **a, t_stack **b)
-{
-    if (ft_check_sorted(*a) == 1)
-        return ;
-    else if ((ft_stacklast(a))->index == 1)
-        ft_sa(a);
-    else if ((ft_stacklast(a))->index == 2)
-        ft_sort3(a);
-    else if ((ft_stacklast(a))->index > 2)
-        ft_sort_big(a);
-}
 
 
 

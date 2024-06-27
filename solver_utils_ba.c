@@ -1,7 +1,29 @@
 #include "push_swap.h"
 
+int ft_find_cheapest_ba(t_stack *a, t_stack *b)
+{
+    int i;
+    t_stack *tmp;
+
+    tmp = a;
+    i = ft_moves_rarb_a(a, b, a->nbr);
+    while (a && i != 0)
+    {
+        if (i > ft_moves_rarb_a(a, b, tmp->nbr))
+            i = ft_moves_rarb_a(a, b, tmp->nbr);
+        if (i > ft_moves_rarrb_a(a, b, tmp->nbr))
+            i = ft_moves_rarrb_a(a, b, tmp->nbr);
+        if (i > ft_moves_rrarb_a(a, b, tmp->nbr))
+            i = ft_moves_rrarb_a(a, b, tmp->nbr);
+        if (i > ft_moves_rrarrb_a(a, b, tmp->nbr))
+            i = ft_moves_rrarrb_a(a, b, tmp->nbr);
+        tmp = tmp->next;
+    }
+    return (i);
+}
+
 //finds how many moves to move a nbr from b to it's
-//corect place in a using ra and rb
+//corect place in a using ra and rb_a
 int ft_moves_rarb_a(t_stack *a, t_stack *b, int c)
 {
     int i;
@@ -13,7 +35,7 @@ int ft_moves_rarb_a(t_stack *a, t_stack *b, int c)
 }
 
 //finds how many moves to move a nbr from b to it's
-//corect place in a using rra and rrb
+//corect place in a using rra and rrb_a
 int ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c)
 {
     int i;
@@ -29,7 +51,7 @@ int ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c)
 }
 
 //finds how many moves to move a nbr from b to it's
-//corect place in a using ra and rrb
+//corect place in a using ra and rrb_a
 int ft_moves_rarrb_a(t_stack *a, t_stack *b, int c)
 {
      int i;
@@ -41,7 +63,7 @@ int ft_moves_rarrb_a(t_stack *a, t_stack *b, int c)
 }
 
 //finds how many moves to move a nbr from b to it's
-//corect place in a using rra and rb
+//corect place in a using rra and rb_a
 int ft_moves_rrarb_a(t_stack *a, t_stack *b, int c)
 {
     int i;

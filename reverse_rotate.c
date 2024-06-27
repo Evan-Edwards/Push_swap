@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+//reverse rotates a stack so that the last becomes the first
 void    ft_rra(t_stack **a, int j)
 {
     t_stack *temp;

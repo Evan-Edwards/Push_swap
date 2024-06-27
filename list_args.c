@@ -6,8 +6,6 @@ int		ft_list_args(char **argv, t_stack **a)
     int     i;
 
     new = NULL;
-    if (check_valid(argv) == 0)
-            return (0);
     while (argv[i])
     {
         while (*argv[i])

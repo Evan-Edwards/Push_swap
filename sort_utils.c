@@ -2,7 +2,6 @@
 
 int ft_find_index(t_stack *a, int nbr)
 {
-    ft_set_index(a);
     while (a)
     {
         if (nbr == a->nbr)
@@ -21,12 +20,12 @@ void    ft_min_to_top(t_stack **a)
     if (index_min < ft_stacksize(*a) - index_min)
     {
         while ((*a)->nbr != ft_min(*a))
-            ft_ra(a);
+            ft_ra(a, 0);
     }
     else
     {
         while ((*a)->nbr != ft_min(*a))
-            ft_rra(a);
+            ft_rra(a, 0);
     }
 }
 
@@ -38,12 +37,12 @@ void    ft_max_to_top(t_stack **b)
     if (index_max < ft_stacksize(*b) - index_max)
     {
         while ((*b)->nbr != ft_max(*b))
-            ft_ra(b);
+            ft_rb(b, 0);
     }
     else
     {
         while ((*b)->nbr != ft_max(*b))
-            ft_rra(b);
+            ft_rrb(b, 0);
     }
 }
 
