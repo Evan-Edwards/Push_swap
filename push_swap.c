@@ -52,3 +52,33 @@ int	main(int argc, char **argv)
 	ft_stackclear(&a);
 	return (0);
 }
+
+//goes through every character of every arguement to check
+//that each chacter is number, space, or -/+, and that if there
+//is a i/+ there is a number after it
+int	ft_check_valid(char **arg)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (arg[i])
+	{
+		j = 0;
+		while ((arg[i])[j])
+		{
+			if (ft_isdigit((arg[i])[j]) == 1 || ft_isspace((arg[i])[j]) == 1
+				|| (arg[i])[j] == '-' || (arg[i])[j] == '+')
+			{
+				if (((arg[i])[j] == '-' || (arg[i])[j] == '+') &&
+					(ft_isdigit((arg[i])[j + 1]) != 1))
+					return (0);
+				j++;
+			}
+			else
+				return (0);
+		}
+		i++;
+	}
+	return (1);
+}

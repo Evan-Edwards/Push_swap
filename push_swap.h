@@ -13,8 +13,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
 # include <unistd.h>
-# include <stdlib.h>
+# include <stdlib.h> 
 # include <stdio.h> //take out when done testing
 
 typedef struct s_stack
@@ -36,8 +37,6 @@ void				ft_sort_push_a(t_stack **a, t_stack **b);
 int					ft_atoi2(char *str);
 int					ft_check_doubles(t_stack **a);
 int					ft_check_valid(char **arg);
-int					ft_isdigit(int c);
-int					ft_isspace(int c);
 int					ft_list_args(char **argv, t_stack **a);
 
 int					ft_check_sorted(t_stack *a);
