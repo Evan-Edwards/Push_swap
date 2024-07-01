@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:53 by eedwards          #+#    #+#             */
-/*   Updated: 2024/06/30 11:07:54 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/06/30 12:34:10 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_rra(t_stack **a, int j)
 
 	temp = ft_stacklast(*a);
 	temp->prev->next = NULL;
-	ft_stackadd_front(a, temp);
+	temp->next = *a;
+	*a = temp;
 	ft_set_index(a);
 	ft_set_prev(a);
 	if (j == 0)

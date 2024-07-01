@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:46 by eedwards          #+#    #+#             */
-/*   Updated: 2024/06/30 11:07:47 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/06/30 14:33:34 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h> //take out when done testing
 
 typedef struct s_stack
 {
@@ -23,7 +25,6 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-void				ft_push_swap(int argc, char **argv);
 void				ft_sort(t_stack **a, t_stack **b);
 void				ft_sort3(t_stack **a);
 void				ft_sort(t_stack **a, t_stack **b);
@@ -31,15 +32,16 @@ void				ft_sort_push_b(t_stack **a, t_stack **b);
 void				ft_sort_b_til_3(t_stack **a, t_stack **b);
 void				ft_sort_push_a(t_stack **a, t_stack **b);
 
-int					check_valid(char **arg);
-int					ft_atoi2(char **str);
+
+int					ft_atoi2(char *str);
 int					ft_check_doubles(t_stack **a);
+int					ft_check_valid(char **arg);
 int					ft_isdigit(int c);
 int					ft_isspace(int c);
 int					ft_list_args(char **argv, t_stack **a);
 
 int					ft_check_sorted(t_stack *a);
-int					ft_find_index(t_stack **a, int nbr);
+int					ft_find_index(t_stack *a, int nbr);
 int					ft_find_place_a(t_stack *a, int nbr);
 int					ft_find_place_b(t_stack *b, int nbr);
 int					ft_max(t_stack *a);
@@ -77,7 +79,7 @@ void				ft_sa(t_stack **a, int j);
 void				ft_sb(t_stack **b, int j);
 void				ft_ss(t_stack **a, t_stack **b, int j);
 
-void				ft_stackadd_front(t_stack **lst, t_stack *new);
+void				ft_stackadd_back(t_stack **lst, t_stack *new);
 void				ft_stackclear(t_stack **lst);
 t_stack				*ft_stacklast(t_stack *lst);
 t_stack				*ft_stacknew(int nbr);

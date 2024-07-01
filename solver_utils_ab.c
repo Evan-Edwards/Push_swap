@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:05 by eedwards          #+#    #+#             */
-/*   Updated: 2024/06/30 11:08:06 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/06/30 13:00:58 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_moves_rarb(t_stack *a, t_stack *b, int c)
 
 //finds how many moves to move a nbr from a to it's
 //corect place in b using rra and rrb
-int	ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c)
+int	ft_moves_rrarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ int	ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c)
 
 //finds how many moves to move a nbr from a to it's
 //corect place in b using ra and rrb
-int	ft_moves_rarrb_a(t_stack *a, t_stack *b, int c)
+int	ft_moves_rarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -76,7 +76,7 @@ int	ft_moves_rarrb_a(t_stack *a, t_stack *b, int c)
 
 //finds how many moves to move a nbr from a to it's
 //corect place in b using rra and rb
-int	ft_moves_rrarb_a(t_stack *a, t_stack *b, int c)
+int	ft_moves_rrarb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 

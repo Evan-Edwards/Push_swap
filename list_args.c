@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:31 by eedwards          #+#    #+#             */
-/*   Updated: 2024/06/30 11:30:36 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/06/30 14:58:04 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,24 @@ int	ft_list_args(char **argv, t_stack **a)
 {
 	t_stack	*new;
 	int		i;
+	int		j;
 
 	new = NULL;
+	i = 1;
 	while (argv[i])
 	{
-		while (*argv[i])
+		j = 0;
+		while (argv[i][j])
 		{
-			new = ft_stacknew(ft_atoi2(&*argv[i]));
-				//need to make another t_stack var?
+			new = ft_stacknew(ft_atoi2(argv[i][j]));
+			//need to make another t_stack var?
 			if (new == NULL)
 			{
 				ft_stackclear(a);
 				return (0);
 			}
 			ft_stackadd_back(a, new);
+			j++;
 		}
 		i++;
 	}
@@ -70,7 +74,7 @@ int	ft_check_doubles(t_stack **a)
 //also can have space, -, or + in front
 //make characters into numbers (atoi)
 
-int	ft_atoi2(char **str)
+int	ft_atoi2(char *str)
 {
 	long	result;
 	long	check;
@@ -78,23 +82,21 @@ int	ft_atoi2(char **str)
 
 	sign = 1;
 	result = 0;
-	while (ft_isspace(**str) == 1)
-		(*str)++;
-	if (**str == '-' || **str == '+')
-	{
-		if (**str == '-')
-			sign *= -1;
-		(*str)++;
-	}
-	while (**str >= '0' && **str <= '9' && **str)
+	while (ft_isspace(*str) == 1)
+		str++;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9' && *str)
 	{
 		check = result;
-		result = result * 10 + **str - '0';
+		result = result * 10 + *str - '0';
 		if (result / 10 != check && sign < 0)
 			return (0);
 		if (result / 10 != check && sign > 0)
 			return (-1);
-		(*str)++;
+		str++;
 	}
 	return ((int)(result * sign));
 }
@@ -102,22 +104,22 @@ int	ft_atoi2(char **str)
 //goes through every character of every arguement to check
 //that each chacter is number, space, or -/+, and that if there
 //is a i/+ there is a number after it
-int	check_valid(char **arg)
+int	ft_check_valid(char **arg)
 {
 	int	i;
 	int	j;
 
-	i = 0;
+	i = 1;
 	while (arg[i])
 	{
 		j = 0;
 		while ((arg[i])[j])
 		{
-			if ((ft_isdigit((arg[i])[j]) == 1) || ft_isspace((arg[i])[j] == 1)
-				|| ((arg[i])[j] == '-' || (arg[i])[j] == '+'))
+			if (ft_isdigit((arg[i])[j]) == 1 || ft_isspace((arg[i])[j]) == 1
+				|| (arg[i])[j] == '-' || (arg[i])[j] == '+')
 			{
 				if (((arg[i])[j] == '-' || (arg[i])[j] == '+') &&
-					(ft_isdigit((arg[i])[j]) != 1))
+					(ft_isdigit((arg[i])[j + 1]) != 1))
 					return (0);
 				j++;
 			}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_stack_utils                                      :+:      :+:    :+:   */
+/*   t_stack_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:17 by eedwards          #+#    #+#             */
-/*   Updated: 2024/06/30 11:08:18 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/06/30 12:26:08 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,25 @@ int	ft_stacksize(t_stack *lst)
 	return (nodes);
 }
 
-void	ft_stackadd_front(t_stack **lst, t_stack *new)
+
+void	ft_stackadd_back(t_stack **lst, t_stack *new)
 {
-	if (!lst || !new)
+	t_stack	*tmp;
+
+	if (!new)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	if (!tmp)
+		tmp = new;
+	else
+		tmp->next = new;
 }
 
 t_stack	*ft_stacklast(t_stack *lst)
