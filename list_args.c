@@ -6,56 +6,52 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:31 by eedwards          #+#    #+#             */
-/*   Updated: 2024/06/30 14:58:04 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:51:58 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_list_args(char **argv, t_stack **a)
+void	ft_list_args(int argc, char **argv, t_stack **a)
 {
 	t_stack	*new;
 	int		i;
-	int		j;
 
 	new = NULL;
 	i = 1;
+	if (argc == 2)
+		i = 0;
 	while (argv[i])
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			new = ft_stacknew(ft_atoi2(argv[i][j]));
-			//need to make another t_stack var?
-			if (new == NULL)
-			{
-				ft_stackclear(a);
-				return (0);
-			}
-			ft_stackadd_back(a, new);
-			j++;
-		}
+		if (ft_check_valid(argv[i]) == 0)
+			ft_error(a);
+		new = ft_stacknew(ft_atoi2(argv[i]));
+		if (new == NULL)
+			ft_error(a);
+		ft_stackadd_back(a, new);
 		i++;
 	}
 	if (ft_check_doubles(a) == 0)
-	{
-		ft_stackclear(a);
-		return (0);
-	}
-	return (1);
+		ft_error(a);
 }
 
-int	ft_multiple_check(char *str)
+
+//checks if the string given is a valid input, can have 1 plus or
+//minus and the other characters must be numbers
+int	ft_check_valid(char *arg)
 {
 	int	i;
-	int	nonum;
 
 	i = 0;
-	while (str[i])
+	if (arg[i] == '-' || arg[i] == '+')
+        i++;
+    while (arg[i])
 	{
-		if (ft_isdigit(str[i]) == 1 && nonum
-
+		if (ft_isdigit(arg[i]) == 0)
+				return (0);
+		i++;
 	}
+	return (1);
 }
 
 //checks if there if doubles in the stack, returns 1 if no

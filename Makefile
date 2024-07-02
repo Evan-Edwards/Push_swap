@@ -6,15 +6,15 @@
 #    By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/30 11:45:41 by eedwards          #+#    #+#              #
-#    Updated: 2024/06/30 12:58:40 by eedwards         ###   ########.fr        #
+#    Updated: 2024/07/02 15:45:53 by eedwards         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = check_sorted.c list_args.c min_max.c push_swap.c push.c \
-reverse_rotate.c rotate_push.c rotate.c set_indexprev.c solver_utils_ab.c \
-solver_utils_ba.c sort_utils.c sort.c swap.c t_stack_utils.c
+SRCS = list_args.c main.c push.c reverse_rotate.c rotate_push.c rotate.c \
+set_indexprev.c solver_utils_ab.c solver_utils_ba.c sort_utils.c \
+sort.c swap.c t_stack_utils.c utils.c
 OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft
