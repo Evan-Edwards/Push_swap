@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:38:59 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/02 15:51:41 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:52:14 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //checks if sorted, returns 1 if sorted
 int	ft_check_sorted(t_stack *a)
 {
-	while (a->next)
+	while (a->next != NULL)
 	{
 		if (a->next->nbr < a->nbr)
 			return (0);

@@ -6,7 +6,7 @@
 #    By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/30 11:45:41 by eedwards          #+#    #+#              #
-#    Updated: 2024/07/02 15:45:53 by eedwards         ###   ########.fr        #
+#    Updated: 2024/07/02 16:43:17 by eedwards         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:.c=.o)
 LIBFT = libft
 LIBFTA = libft.a
 
-CC = cc
+CC = cc -g
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -L./$(LIBFT) -lft
