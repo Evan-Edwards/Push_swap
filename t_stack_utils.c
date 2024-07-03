@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:17 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/02 15:33:11 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:40:49 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_stackclear(t_stack **lst)
 	while (*lst)
 	{
 		tmp = (*lst)->next;
-		//need to set nbr to 0?
 		free(*lst);
 		*lst = tmp;
 	}
@@ -53,7 +52,6 @@ int	ft_stacksize(t_stack *lst)
 	}
 	return (nodes);
 }
-
 
 void	ft_stackadd_back(t_stack **lst, t_stack *new)
 {

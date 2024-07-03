@@ -17,9 +17,11 @@ void	ft_set_index(t_stack **a)
 	int		index;
 	t_stack	*i;
 
+	if (!a)
+		return ;
 	index = 0;
 	i = *a;
-	while (i->next)
+	while (i)
 	{
 		i->index = index;
 		index++;
@@ -31,6 +33,8 @@ void	ft_set_prev(t_stack **a)
 {
 	t_stack	*i;
 
+	if (!*a)
+		return ;
 	i = *a;
 	i->prev = NULL;
 	while (i->next)

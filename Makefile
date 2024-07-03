@@ -13,14 +13,14 @@
 NAME = push_swap
 
 SRCS = list_args.c main.c push.c reverse_rotate.c rotate_push.c rotate.c \
-set_indexprev.c solver_utils_ab.c solver_utils_ba.c sort_utils.c \
+set_indexprev.c solver_utils_ab.c solver_utils_ba.c sort_345.c sort_utils.c \
 sort.c swap.c t_stack_utils.c utils.c
 OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft
 LIBFTA = libft.a
 
-CC = cc -g
+CC = cc -g -fsanitize=address 
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -L./$(LIBFT) -lft

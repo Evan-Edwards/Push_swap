@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:38:59 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/02 16:52:14 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:41:07 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ int	ft_check_sorted(t_stack *a)
 	return (1);
 }
 
-
 //clears stack, outputs error, and exits program
-void    ft_error(t_stack **a)
+void	ft_error(t_stack **a)
 {
-    ft_stackclear(a);
-    write (1, "Error\n", 6);
-    exit(1);
+	ft_stackclear(a);
+	write(1, "Error\n", 6);
+	exit(1);
 }
 
 int	ft_min(t_stack *a)

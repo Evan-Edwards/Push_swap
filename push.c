@@ -27,12 +27,12 @@ void	ft_pb(t_stack **a, t_stack **b, int j)
 	ft_set_prev(a);
 	ft_set_prev(b);
 	if (j == 0)
-		write(1, "pa\n", 3);
+		write(1, "pb\n", 3);
 }
 
 void	ft_pa(t_stack **a, t_stack **b, int j)
 {
 	ft_pb(b, a, 1);
 	if (j == 0)
-		write(1, "pb\n", 3);
+		write(1, "pa\n", 3);
 }

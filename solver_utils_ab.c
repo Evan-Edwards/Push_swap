@@ -19,7 +19,7 @@ int	ft_find_cheapest_ab(t_stack *a, t_stack *b)
 
 	tmp = a;
 	i = ft_moves_rarb(a, b, a->nbr);
-	while (a && i != 0)
+	while (tmp && i != 0)
 	{
 		if (i > ft_moves_rarb(a, b, tmp->nbr))
 			i = ft_moves_rarb(a, b, tmp->nbr);

@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:10 by eedwards          #+#    #+#             */
-/*   Updated: 2024/06/30 12:35:42 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:42:15 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_find_index(t_stack *a, int nbr)
 	}
 	return (-1);
 }
-//need the return (-1)?
 
+//need the return (-1)?
 void	ft_min_to_top(t_stack **a)
 {
 	int	index_min;
@@ -63,7 +63,7 @@ int	ft_find_place_b(t_stack *b, int nbr)
 	int		i;
 	t_stack	*temp;
 
-	i = 1; //?
+	i = 1;
 	if (nbr > b->nbr && nbr < ft_stacklast(b)->nbr)
 		i = 0;
 	else if (nbr > ft_max(b) || nbr < ft_min(b))
@@ -86,7 +86,7 @@ int	ft_find_place_a(t_stack *a, int nbr)
 	int		i;
 	t_stack	*temp;
 
-	i = 1; //?
+	i = 1;
 	if (nbr < a->nbr && nbr > ft_stacklast(a)->nbr)
 		i = 0;
 	else if (nbr > ft_max(a) || nbr < ft_min(a))

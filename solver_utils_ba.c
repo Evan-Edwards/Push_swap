@@ -17,9 +17,9 @@ int	ft_find_cheapest_ba(t_stack *a, t_stack *b)
 	int		i;
 	t_stack	*tmp;
 
-	tmp = a;
-	i = ft_moves_rarb_a(a, b, a->nbr);
-	while (a && i != 0)
+	tmp = b;
+	i = ft_moves_rarb_a(a, b, b->nbr);
+	while (tmp && i != 0)
 	{
 		if (i > ft_moves_rarb_a(a, b, tmp->nbr))
 			i = ft_moves_rarb_a(a, b, tmp->nbr);
@@ -41,7 +41,7 @@ int	ft_moves_rarb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = ft_find_index(b, c);
-	if (ft_find_place_b(a, c) > i)
+	if (ft_find_place_a(a, c) > i)
 		i = ft_find_place_a(a, c);
 	return (i);
 }
@@ -54,7 +54,7 @@ int	ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c)
 
 	if (ft_find_index(b, c) != 0)
 		i = ft_stacksize(b) - ft_find_index(b, c);
-	if (ft_find_place_a(b, c) != 0)
+	if (ft_find_place_a(a, c) != 0)
 	{
 		if (i < ft_stacksize(a) - ft_find_place_a(a, c))
 			i = ft_stacksize(a) - ft_find_place_a(a, c);

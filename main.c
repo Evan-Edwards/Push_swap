@@ -19,24 +19,24 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	
+	t_stack	*temp;
+
 	a = NULL;
 	b = NULL;
 	if (argc <= 1)
 		ft_error(&a);
-	printf("argc valid\n");
 	if (argc == 2)
-		argv = ft_split((const char *) argv[1], ' ');
+		argv = ft_split((const char *)argv[1], ' ');
 	ft_list_args(argc, argv, &a);
 	printf("args listed\n");
-	while (a)
-	{
-		printf("%li\n", a->nbr);
-		a = a->next;
-	}
 	ft_sort(&a, &b);
 	printf("args sorted\n");
+	temp = a;
+	while (temp)
+	{
+		printf("%li\n", temp->nbr);
+		temp = temp->next;
+	}
 	ft_stackclear(&a);
 	return (0);
 }
-

@@ -14,9 +14,9 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h> 
 # include <stdio.h> //take out when done testing
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -28,11 +28,11 @@ typedef struct s_stack
 
 void				ft_sort(t_stack **a, t_stack **b);
 void				ft_sort3(t_stack **a);
+void				ft_sort45(t_stack **a, t_stack **b);
 void				ft_sort(t_stack **a, t_stack **b);
 void				ft_sort_push_b(t_stack **a, t_stack **b);
-void				ft_sort_b_til_3(t_stack **a, t_stack **b);
+void				ft_sort_push_b_til_3(t_stack **a, t_stack **b);
 void				ft_sort_push_a(t_stack **a, t_stack **b);
-
 
 int					ft_atoi2(char *str);
 int					ft_check_doubles(t_stack **a);
@@ -62,10 +62,10 @@ int					ft_moves_rarrb_a(t_stack *a, t_stack *b, int c);
 int					ft_moves_rrarb_a(t_stack *a, t_stack *b, int c);
 int					ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c);
 
-void				ft_apply_rarb(t_stack **a, t_stack **b, int c, char s);
-void				ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
-void				ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
-void				ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
+int					ft_apply_rarb(t_stack **a, t_stack **b, int c, char s);
+int					ft_apply_rarrb(t_stack **a, t_stack **b, int c, char s);
+int					ft_apply_rrarb(t_stack **a, t_stack **b, int c, char s);
+int					ft_apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
 
 void				ft_pa(t_stack **a, t_stack **b, int j);
 void				ft_pb(t_stack **a, t_stack **b, int j);
