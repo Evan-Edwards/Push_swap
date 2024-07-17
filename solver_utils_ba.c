@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+//finds the cheapest number to move as well as cheapest way to move it to from
+//stack a to stack b
 int	ft_find_cheapest_ba(t_stack *a, t_stack *b)
 {
 	int		i;
@@ -52,6 +54,7 @@ int	ft_moves_rrarrb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
+	i = 0;
 	if (ft_find_index(b, c) != 0)
 		i = ft_stacksize(b) - ft_find_index(b, c);
 	if (ft_find_place_a(a, c) != 0)
@@ -68,6 +71,7 @@ int	ft_moves_rarrb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
+	i = 0;
 	if (ft_find_index(b, c) != 0)
 		i = ft_stacksize(b) - ft_find_index(b, c);
 	i += ft_find_place_a(a, c);

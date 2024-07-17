@@ -34,7 +34,7 @@ void				ft_sort_push_b(t_stack **a, t_stack **b);
 void				ft_sort_push_b_til_3(t_stack **a, t_stack **b);
 void				ft_sort_push_a(t_stack **a, t_stack **b);
 
-int					ft_atoi2(char *str);
+long				ft_atoi2(char *str);
 int					ft_check_doubles(t_stack **a);
 int					ft_check_valid(char *arg);
 void				ft_list_args(int argc, char **argv, t_stack **a);

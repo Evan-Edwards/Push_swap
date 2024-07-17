@@ -23,7 +23,7 @@ int	ft_find_index(t_stack *a, int nbr)
 	return (-1);
 }
 
-//need the return (-1)?
+
 void	ft_min_to_top(t_stack **a)
 {
 	int	index_min;
@@ -58,6 +58,7 @@ void	ft_max_to_top(t_stack **b)
 	}
 }
 
+//finds the correct place for the given number in the stack b
 int	ft_find_place_b(t_stack *b, int nbr)
 {
 	int		i;
@@ -81,6 +82,7 @@ int	ft_find_place_b(t_stack *b, int nbr)
 	return (i);
 }
 
+//finds the correct place for the given number in the stack a
 int	ft_find_place_a(t_stack *a, int nbr)
 {
 	int		i;

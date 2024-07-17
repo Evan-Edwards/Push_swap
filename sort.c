@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-//sorts t_stack a if needed by calling ft_sa if there
-//is only 2 numbers, ft_sort3 if there's 3 numbers,
-//and uses ft_sort_push_bm ft_sort_push_a and ft_min_to_top
-// to sort if it is longer than 3 numbers.
+//sorts t_stack a if needed by calling ft_sa if there is only 2 numbers, 
+//ft_sort3 if there's 3 numbers, ft_sort45 for 4/5 numbers,
+//and uses ft_sort_push_b ft_sort_push_a and ft_min_to_top to sort if it is 
+//longer than 3 numbers.
 void	ft_sort(t_stack **a, t_stack **b)
 {
 	int	size;
@@ -37,9 +37,9 @@ void	ft_sort(t_stack **a, t_stack **b)
 	}
 }
 
-//first pushes 2 first numbers to a as long as a is not
-//sorted. Then it calls the ft_sort_b_til_3 to send all
-//but 3 numbers to a. It then sorts the last 3 numbers with ft_sort3.
+//first pushes 2 first numbers to b as long as a is not sorted. Then it calls 
+//the ft_sort_b_til_3 to send all but 3 numbers to a. It then sorts the last 3
+// numbers with ft_sort3.
 void	ft_sort_push_b(t_stack **a, t_stack **b)
 {
 	ft_pb(a, b, 0);
@@ -51,6 +51,9 @@ void	ft_sort_push_b(t_stack **a, t_stack **b)
 		ft_sort3(a);
 }
 
+//1)Finds the cheapest number and method to place it correctly in stack b.
+//2) Identify the correct number and method.
+//3)Apply that method to move the number to stack b. 
 void	ft_sort_push_b_til_3(t_stack **a, t_stack **b)
 {
 	int		i;
@@ -76,6 +79,9 @@ void	ft_sort_push_b_til_3(t_stack **a, t_stack **b)
 	}
 }
 
+//1)Finds the cheapest number and method to place it correctly in stack a.
+//2) Identify the correct number and method.
+//3)Apply that method to move the number to stack a.
 void	ft_sort_push_a(t_stack **a, t_stack **b)
 {
 	int		i;

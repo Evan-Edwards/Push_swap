@@ -12,31 +12,55 @@
 
 #include "push_swap.h"
 
-//main function, takes the arguements given and checks if valid
-//It then puts the arguments in t_stack a and calls the ft_sort
-//to sort.
+//frees the result of using ft_split if there is only 1 argument given
+void free_split_result(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		free (argv[i]);
+		i++;
+	}
+	free (argv);
+}
+
+//main function, checks that argc is more than 1, uses ft_split to make a 
+//single string of values into an array of strings, lists args in t_stack a and
+//then sorts them.
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*temp;
-
+	
 	a = NULL;
 	b = NULL;
 	if (argc <= 1)
-		ft_error(&a);
+		return (0);
 	if (argc == 2)
+	{
 		argv = ft_split((const char *)argv[1], ' ');
+		if (!argv)
+			ft_error(&a);
+	}
 	ft_list_args(argc, argv, &a);
-	printf("args listed\n");
 	ft_sort(&a, &b);
-	printf("args sorted\n");
-	temp = a;
-	while (temp)
+	ft_stackclear(&a);
+	if (argc == 2)
+		free_split_result(argv);
+	return (0);
+}
+
+
+/*
+t_stack	*temp;
+
+temp = a;
+while (temp)
 	{
 		printf("%li\n", temp->nbr);
 		temp = temp->next;
 	}
-	ft_stackclear(&a);
-	return (0);
-}
+	*/

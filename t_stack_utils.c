@@ -17,7 +17,7 @@ t_stack	*ft_stacknew(int nbr)
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
-	if (!new)
+	if (!new || nbr > INT_MAX || nbr < INT_MIN)
 		return (NULL);
 	new->nbr = nbr;
 	new->next = NULL;

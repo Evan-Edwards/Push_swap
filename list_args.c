@@ -11,10 +11,16 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+//takes the args given and puts them into the t_stack a
+//it first checks that the arguments are valid, then makes
+//a new stack element and adds it to the back of the stack
+//it also checks if there are doubles
+
 void	ft_list_args(int argc, char **argv, t_stack **a)
 {
 	t_stack	*new;
 	int		i;
+	long	nbr;
 
 	new = NULL;
 	i = 1;
@@ -24,7 +30,10 @@ void	ft_list_args(int argc, char **argv, t_stack **a)
 	{
 		if (ft_check_valid(argv[i]) == 0)
 			ft_error(a);
-		new = ft_stacknew(ft_atoi2(argv[i]));
+		nbr = ft_atoi2(argv[i]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			ft_error(a);
+		new = ft_stacknew(nbr);
 		if (new == NULL)
 			ft_error(a);
 		ft_stackadd_back(a, new);
@@ -52,7 +61,7 @@ int	ft_check_valid(char *arg)
 	return (1);
 }
 
-//checks if there if doubles in the stack, returns 1 if no
+//checks if there is doubles in the stack, returns 1 if no
 //doubles found
 int	ft_check_doubles(t_stack **a)
 {
@@ -78,10 +87,8 @@ int	ft_check_doubles(t_stack **a)
 	return (1);
 }
 
-//need to also check that works with single string of numbers
-//also can have space, -, or + in front
-//make characters into numbers (atoi)
-int	ft_atoi2(char *str)
+//makes longs from the char strings given
+long	ft_atoi2(char *str)
 {
 	long	result;
 	long	check;
@@ -105,5 +112,5 @@ int	ft_atoi2(char *str)
 			return (-1);
 		str++;
 	}
-	return ((int)(result * sign));
+	return (result * sign);
 }

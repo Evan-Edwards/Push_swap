@@ -32,6 +32,7 @@ void	ft_error(t_stack **a)
 	exit(1);
 }
 
+//returns minimum number in stack
 int	ft_min(t_stack *a)
 {
 	int	min;
@@ -47,6 +48,7 @@ int	ft_min(t_stack *a)
 	return (min);
 }
 
+//returns maximum number in stack
 int	ft_max(t_stack *a)
 {
 	int	max;

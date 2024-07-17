@@ -92,5 +92,10 @@ char	**ft_split(char const *s, char c)
 	if (!arr)
 		return (NULL);
 	arr = split(s, c, arr, words);
+	if (!arr)
+	{
+		free(arr);
+		return (NULL);
+	}
 	return (arr);
 }
