@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 //frees the result of using ft_split if there is only 1 argument given
-void free_split_result(char **argv)
+void	free_split_result(char **argv)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	
+
 	a = NULL;
 	b = NULL;
 	if (argc <= 1)
@@ -52,7 +52,6 @@ int	main(int argc, char **argv)
 		free_split_result(argv);
 	return (0);
 }
-
 
 /*
 t_stack	*temp;

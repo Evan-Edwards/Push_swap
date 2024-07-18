@@ -50,7 +50,7 @@ int	ft_check_valid(char *arg)
 	int	i;
 
 	i = 0;
-	if (arg[i] == '-' || arg[i] == '+')
+	if ((arg[i] == '-' || arg[i] == '+') && ft_isdigit(arg[i + 1]) == 1)
 		i++;
 	while (arg[i])
 	{
@@ -91,7 +91,6 @@ int	ft_check_doubles(t_stack **a)
 long	ft_atoi2(char *str)
 {
 	long	result;
-	long	check;
 	int		sign;
 
 	sign = 1;
@@ -104,12 +103,7 @@ long	ft_atoi2(char *str)
 		str++;
 	while (*str >= '0' && *str <= '9' && *str)
 	{
-		check = result;
 		result = result * 10 + *str - '0';
-		if (result / 10 != check && sign < 0)
-			return (0);
-		if (result / 10 != check && sign > 0)
-			return (-1);
 		str++;
 	}
 	return (result * sign);

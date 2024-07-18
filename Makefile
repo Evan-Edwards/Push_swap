@@ -20,7 +20,7 @@ OBJS = $(SRCS:.c=.o)
 LIBFT = libft
 LIBFTA = libft.a
 
-CC = cc -g -fsanitize=address 
+CC = cc -g
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -L./$(LIBFT) -lft

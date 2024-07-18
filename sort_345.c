@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 void	ft_sort3(t_stack **a)
 {
 	t_stack	*temp;
@@ -39,6 +38,7 @@ void	ft_sort3(t_stack **a)
 			ft_sa(a, 0);
 	}
 }
+
 //sorts stacks of 4 or 5 by bringing the min to the top and pushing to b,
 //and then sorting the last 3 with ft_sort3
 void	ft_sort45(t_stack **a, t_stack **b)

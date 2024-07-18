@@ -23,7 +23,6 @@ int	ft_find_index(t_stack *a, int nbr)
 	return (-1);
 }
 
-
 void	ft_min_to_top(t_stack **a)
 {
 	int	index_min;

@@ -28,7 +28,7 @@ int	ft_check_sorted(t_stack *a)
 void	ft_error(t_stack **a)
 {
 	ft_stackclear(a);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
