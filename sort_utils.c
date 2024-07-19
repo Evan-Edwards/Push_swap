@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:10 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/03 16:42:15 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:53:47 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	ft_find_place_b(t_stack *b, int nbr)
 			i++;
 		}
 	}
+	//printf("ft_find_place_b: nbr=%d, place=%d\n", nbr, i);
 	return (i);
 }
 
