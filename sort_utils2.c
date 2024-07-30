@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:38:59 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/03 16:41:07 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:09:51 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@ int	ft_check_sorted(t_stack *a)
 		a = a->next;
 	}
 	return (1);
-}
-
-//clears stack, outputs error, and exits program
-void	ft_error(t_stack **a)
-{
-	ft_stackclear(a);
-	write(2, "Error\n", 6);
-	exit(1);
 }
 
 //returns minimum number in stack
@@ -62,4 +54,36 @@ int	ft_max(t_stack *a)
 		a = a->next;
 	}
 	return (max);
+}
+
+void	ft_set_index(t_stack **a)
+{
+	int		index;
+	t_stack	*i;
+
+	if (!a)
+		return ;
+	index = 0;
+	i = *a;
+	while (i)
+	{
+		i->index = index;
+		index++;
+		i = i->next;
+	}
+}
+
+void	ft_set_prev(t_stack **a)
+{
+	t_stack	*i;
+
+	if (!*a)
+		return ;
+	i = *a;
+	i->prev = NULL;
+	while (i->next)
+	{
+		i->next->prev = i;
+		i = i->next;
+	}
 }

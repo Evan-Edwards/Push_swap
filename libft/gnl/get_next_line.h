@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:30:11 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/18 13:38:54 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:24:54 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../libft.h"
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin1(char *stash, char *buf);
-char	*ft_strdup(const char *s1);
-size_t	ft_strlen(const char *s);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
 
 #endif

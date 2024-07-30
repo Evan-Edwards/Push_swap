@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:50 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/27 12:08:46 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:03:47 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_pb(t_stack **a, t_stack **b, int j)
 		write(1, "pb\n", 3);
 }
 
+//pushes number from top of b stack to top of a stack
 void	ft_pa(t_stack **a, t_stack **b, int j)
 {
 	ft_pb(b, a, 1);

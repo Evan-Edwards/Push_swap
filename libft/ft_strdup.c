@@ -6,9 +6,10 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:15:29 by eedwards          #+#    #+#             */
-/*   Updated: 2024/04/18 16:29:55 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:42:27 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
@@ -16,6 +17,8 @@ char	*ft_strdup(const char *s1)
 	char	*res;
 	size_t	i;
 
+	if (!s1)
+		return (NULL);
 	res = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);

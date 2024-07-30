@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_args.c                                        :+:      :+:    :+:   */
+/*   args_to_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:31 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/02 17:03:00 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:01:20 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 //takes the args given and puts them into the t_stack a
 //it first checks that the arguments are valid, then makes
 //a new stack element and adds it to the back of the stack
 //it also checks if there are doubles
-
-void	ft_list_args(int argc, char **argv, t_stack **a)
+void	ft_args_to_stack(int argc, char **argv, t_stack **a)
 {
 	t_stack	*new;
 	int		i;
@@ -41,6 +41,14 @@ void	ft_list_args(int argc, char **argv, t_stack **a)
 	}
 	if (ft_check_doubles(a) == 0)
 		ft_error(a);
+}
+
+//clears stack, outputs error, and exits program
+void	ft_error(t_stack **a)
+{
+	ft_stackclear(a);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 //checks if the string given is a valid input, can have 1 plus or

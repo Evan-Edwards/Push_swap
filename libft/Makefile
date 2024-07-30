@@ -6,7 +6,7 @@
 #    By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2024/07/18 15:13:00 by eedwards         ###   ########.fr        #
+#    Updated: 2024/07/30 16:48:11 by eedwards         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
 	ft_lstmap.c ft_lstnew.c ft_lstsize.c \
 
-GNL_SRCS =	gnl/get_next_line_bonus.c gnl/get_next_line_utils.c \
-	gnl/get_next_line.c
+GNL_SRCS =	gnl/get_next_line_utils.c gnl/get_next_line.c \
 
 PRINTF_DIR = ft_printf
 PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a

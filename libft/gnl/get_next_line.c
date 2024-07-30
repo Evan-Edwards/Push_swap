@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/07 13:29:57 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/18 14:10:03 by eedwards         ###   ########.fr       */
+/*   Created: 2024/05/30 14:55:16 by eedwards          #+#    #+#             */
+/*   Updated: 2024/07/18 14:10:18 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ static char	*set_line(char *stash)
 		return (NULL);
 	return (line);
 }
-/*Sets line as the stash until new line*/
+/*If there is a new line and characters afterwards sets stash to the remaining
+characters after new line, otherwise frees and nulls stash.*/
 
 static char	*next_stash(char *stash)
 {
@@ -66,7 +67,7 @@ static char	*next_stash(char *stash)
 }
 
 /*If there is a new line and characters afterwards sets stash to the remaining
-characters after new line, otherwise frees and nulls stash.*/
+characters after new line*/
 
 static char	*fill_stash(int fd, char **stash, char *buf)
 {
@@ -101,27 +102,27 @@ and buf together and continues until buf does contain a new line or NULL*/
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*stash;
+	static char	*stash[MAX_FD];
 	char		*buf;
 
 	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0 || !buf)
 	{
-		free_stash(&stash);
+		free_stash(&stash[fd]);
 		free_stash(&buf);
 		return (NULL);
 	}
-	stash = fill_stash(fd, &stash, buf);
+	stash[fd] = fill_stash(fd, &stash[fd], buf);
 	free (buf);
-	if (!stash)
+	if (!stash[fd])
 		return (NULL);
-	line = set_line(stash);
+	line = set_line(stash[fd]);
 	if (!line)
 	{
-		free_stash(&stash);
+		free_stash(&stash[fd]);
 		return (NULL);
 	}
-	stash = next_stash(stash);
+	stash[fd] = next_stash(stash[fd]);
 	return (line);
 }
 /*Checks first that fd and BUFFER_SIZE are valid. It then fills the stash with 

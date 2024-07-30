@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:12 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/27 12:39:59 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:11:33 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,6 @@ void	ft_sort_push_b(t_stack **a, t_stack **b)
 		ft_sort_push_b_til_3(a, b);
 	if (ft_check_sorted(*a) == 0)
 		ft_sort3(a);
-}
-
-//1)Finds the cheapest number and method to place it correctly in stack b.
-//2) Identify the correct number and method.
-//3)Apply that method to move the number to stack b. 
-
-void print_stacks(t_stack *a, t_stack *b)
-{
-    printf("Stack A: ");
-    while (a)
-    {
-        printf("%ld ", a->nbr);
-        a = a->next;
-    }
-    printf("\nStack B: ");
-    while (b)
-    {
-        printf("%ld ", b->nbr);
-        b = b->next;
-    }
-    printf("\n\n");
 }
 
 void	ft_sort_push_b_til_3(t_stack **a, t_stack **b)
