@@ -6,10 +6,9 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:25:55 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/02 17:02:59 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:26:58 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 static int	count_words(char const *s, char c)
@@ -60,9 +59,11 @@ static char	**split(char const *s, char c, char **arr, int words)
 {
 	int				i;
 	unsigned int	j;
+	unsigned int	k;
 
 	i = 0;
 	j = 0;
+	k = 0;
 	while (i < words)
 	{
 		while (s[j] && s[j] == c)
@@ -92,10 +93,5 @@ char	**ft_split(char const *s, char c)
 	if (!arr)
 		return (NULL);
 	arr = split(s, c, arr, words);
-	if (!arr)
-	{
-		free(arr);
-		return (NULL);
-	}
 	return (arr);
 }

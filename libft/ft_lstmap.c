@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 15:50:25 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/18 14:04:01 by eedwards         ###   ########.fr       */
+/*   Created: 2024/07/18 13:15:42 by eedwards          #+#    #+#             */
+/*   Updated: 2024/07/18 13:15:45 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*tmp;
+	t_list	*map;
+	t_list	*node;
+	void	*current;
 
-	if (count > 0 && size > 0 && count > SIZE_MAX / size)
+	if (!lst || !f || !del)
 		return (NULL);
-	tmp = malloc(count * size);
-	if (!tmp)
-		return (NULL);
-	ft_bzero(tmp, size * count);
-	return (tmp);
+	map = NULL;
+	while (lst)
+	{
+		current = f(lst->content);
+		node = ft_lstnew(current);
+		if (!node)
+		{
+			del(current);
+			ft_lstclear(&map, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&map, node);
+		lst = lst->next;
+	}
+	return (map);
 }
-/* If successful, calloc() returns a pointer to allocated memory. The allocated
-memory is filled with bytes of value zero. If there is an error, they return
-a NULL pointer and set errno to ENOMEM (done by malloc)*/

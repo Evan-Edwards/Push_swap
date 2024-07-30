@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:05 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/19 13:49:25 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/27 12:42:01 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	ft_moves_rarb(t_stack *a, t_stack *b, int c)
 	i = ft_find_index(a, c);
 	if (ft_find_place_b(b, c) > i)
 		i = ft_find_place_b(b, c);
+	//printf("ft_find_place_b: nbr=%d, place=%d\n", c, ft_find_place_b(b, c));
 	return (i);
 }
 
@@ -91,7 +92,7 @@ int	ft_moves_rrarrb(t_stack *a, t_stack *b, int c)
 
 //finds how many moves to move a nbr from a to it's
 //corect place in b using ra and rrb
-int	ft_moves_rarrb(t_stack *a, t_stack *b, int c)
+int	ft_moves_rrarb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -104,7 +105,7 @@ int	ft_moves_rarrb(t_stack *a, t_stack *b, int c)
 
 //finds how many moves to move a nbr from a to it's
 //corect place in b using rra and rb
-int	ft_moves_rrarb(t_stack *a, t_stack *b, int c)
+int	ft_moves_rarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 13:33:15 by eedwards          #+#    #+#             */
-/*   Updated: 2024/04/26 14:37:54 by eedwards         ###   ########.fr       */
+/*   Created: 2024/05/27 10:37:42 by eedwards          #+#    #+#             */
+/*   Updated: 2024/05/27 10:37:45 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_putnbr(long nb, int len, char *base, int *count)
 {
-	t_list	*tmp;
-
-	if (!new)
-		return ;
-	if (!*lst)
+	if (nb < 0)
 	{
-		*lst = new;
-		return ;
+		if (ft_putchar('-') == -1)
+			return (-1);
+		(*count)++;
+		nb *= -1;
 	}
-	tmp = *lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	if (!tmp)
-		tmp = new;
-	else
-		tmp->next = new;
+	if (nb >= len)
+	{
+		if (ft_putnbr(nb / len, len, base, count) == -1)
+			return (-1);
+	}
+	if (ft_putchar(base[nb % len]) == -1)
+		return (-1);
+	(*count)++;
+	return (*count);
 }

@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 11:07:50 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/27 12:08:46 by eedwards         ###   ########.fr       */
+/*   Created: 2024/07/18 13:14:59 by eedwards          #+#    #+#             */
+/*   Updated: 2024/07/18 13:15:03 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-//pushes number from top of a stack to top of b stack
-void	ft_pb(t_stack **a, t_stack **b, int j)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_stack	*temp;
+	t_list	*tmp;
 
-	if (*a == NULL)
+	if (!lst || !(*lst) || !del)
 		return ;
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = *b;
-	*b = temp;
-	ft_set_index(a);
-	ft_set_index(b);
-	ft_set_prev(a);
-	ft_set_prev(b);
-	if (j == 0)
-		write(1, "pb\n", 3);
-}
-
-void	ft_pa(t_stack **a, t_stack **b, int j)
-{
-	ft_pb(b, a, 1);
-	if (j == 0)
-		write(1, "pa\n", 3);
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
+	}
+	free(*lst);
+	*lst = NULL;
 }

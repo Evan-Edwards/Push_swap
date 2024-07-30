@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 13:35:23 by eedwards          #+#    #+#             */
-/*   Updated: 2024/04/26 15:27:53 by eedwards         ###   ########.fr       */
+/*   Created: 2024/05/27 10:38:10 by eedwards          #+#    #+#             */
+/*   Updated: 2024/05/27 10:38:12 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_putchar(char c)
 {
-	t_list	*map;
-	t_list	*node;
-	void	*current;
-
-	if (!lst || !f || !del)
-		return (NULL);
-	map = NULL;
-	while (lst)
+	if (write(1, &c, 1) == -1)
 	{
-		current = f(lst->content);
-		node = ft_lstnew(current);
-		if (!node)
-		{
-			del(current);
-			ft_lstclear(&map, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&map, node);
-		lst = lst->next;
+		return (-1);
 	}
-	return (map);
+	return (1);
 }

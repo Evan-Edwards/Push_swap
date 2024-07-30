@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 13:33:41 by eedwards          #+#    #+#             */
-/*   Updated: 2024/04/26 13:33:53 by eedwards         ###   ########.fr       */
+/*   Created: 2024/05/27 10:37:26 by eedwards          #+#    #+#             */
+/*   Updated: 2024/05/27 10:37:28 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	ft_putstr(char *s)
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	if (!s)
+	{
+		return (write(1, "(null)", 6));
+	}
+	while (s[i])
+	{
+		if (ft_putchar(s[i]) == -1)
+			return (-1);
+		count ++;
+		i++;
+	}
+	return (count);
 }

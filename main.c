@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:39 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/02 15:46:52 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/27 13:12:47 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		argv = ft_split((const char *)argv[1], ' ');
-		if (!argv)
+		if (!argv || !*argv)
 			ft_error(&a);
 	}
 	ft_list_args(argc, argv, &a);
