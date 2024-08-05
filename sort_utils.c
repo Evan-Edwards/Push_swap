@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:10 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/27 12:17:55 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/05 11:16:23 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,10 @@ int	ft_find_place_b(t_stack *b, int nbr)
 	if (nbr > b->nbr && nbr < ft_stacklast(b)->nbr)
 	{
 		i = 0;
-		//printf("first\n");
 	}
 	else if (nbr > ft_max(b) || nbr < ft_min(b))
 	{
 		i = ft_find_index(b, ft_max(b));
-		//printf("second\n");
 	}
 	else
 	{

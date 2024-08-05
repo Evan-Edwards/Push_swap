@@ -6,11 +6,17 @@
 #    By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/30 11:45:41 by eedwards          #+#    #+#              #
-#    Updated: 2024/07/30 18:23:37 by eedwards         ###   ########.fr        #
+#    Updated: 2024/08/05 11:08:47 by eedwards         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+CC = cc -g
+RM = rm -f
+CFLAGS = -Wall -Wextra -Werror
+LFLAGS = -L./$(LIBFT) -lft
+LIBFT = libft
+LIBFTA = libft.a
 
 SRCS = apply_rotate_push.c \
 	args_to_stack.c \
@@ -28,14 +34,6 @@ SRCS = apply_rotate_push.c \
 	t_stack_utils.c \
 
 OBJS = $(SRCS:.c=.o)
-
-LIBFT = libft
-LIBFTA = libft.a
-
-CC = cc -g
-RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
-LFLAGS = -L./$(LIBFT) -lft
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:12 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/30 18:11:33 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/05 11:15:47 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	ft_sort_push_b_til_3(t_stack **a, t_stack **b)
 			else
 				tmp = tmp->next;
 		}
-		//print_stacks(*a, *b);
 	}
 }
 

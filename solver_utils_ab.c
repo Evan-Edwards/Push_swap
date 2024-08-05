@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:08:05 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/30 18:13:30 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/05 11:14:45 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_moves_rarb(t_stack *a, t_stack *b, int c)
 	i = ft_find_index(a, c);
 	if (ft_find_place_b(b, c) > i)
 		i = ft_find_place_b(b, c);
-	//printf("ft_find_place_b: nbr=%d, place=%d\n", c, ft_find_place_b(b, c));
 	return (i);
 }
 

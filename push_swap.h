@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:46 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/30 18:34:52 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/05 11:16:02 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ t_stack				*ft_stacklast(t_stack *lst);
 t_stack				*ft_stacknew(int nbr);
 void				ft_stackadd_back(t_stack **lst, t_stack *new);
 void				ft_stackclear(t_stack **lst);
-
 
 /* ************************************************************************** */
 /*                                     SORT                                   */
