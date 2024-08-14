@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:31 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/30 18:01:20 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/14 10:31:59 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,25 @@ void	ft_args_to_stack(int argc, char **argv, t_stack **a)
 	while (argv[i])
 	{
 		if (ft_check_valid(argv[i]) == 0)
-			ft_error(a);
+			ft_invalid_arg(argc, argv, a);
 		nbr = ft_atoi2(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			ft_error(a);
+			ft_invalid_arg(argc, argv, a);
 		new = ft_stacknew(nbr);
 		if (new == NULL)
-			ft_error(a);
+			ft_invalid_arg(argc, argv, a);
 		ft_stackadd_back(a, new);
 		i++;
 	}
 	if (ft_check_doubles(a) == 0)
-		ft_error(a);
+		ft_invalid_arg(argc, argv, a);
+}
+
+void	ft_invalid_arg(int argc, char **argv, t_stack **a)
+{
+	if (argc == 2)
+		free_split_result(argv);
+	ft_error(a);
 }
 
 //clears stack, outputs error, and exits program

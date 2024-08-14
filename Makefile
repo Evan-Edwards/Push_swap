@@ -6,7 +6,7 @@
 #    By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/30 11:45:41 by eedwards          #+#    #+#              #
-#    Updated: 2024/08/05 11:08:47 by eedwards         ###   ########.fr        #
+#    Updated: 2024/08/14 10:43:02 by eedwards         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -L./$(LIBFT) -lft
 LIBFT = libft
 LIBFTA = libft.a
+MAKE_SILENT = make --no-print-directory
 
 SRCS = apply_rotate_push.c \
 	args_to_stack.c \
@@ -36,20 +37,25 @@ SRCS = apply_rotate_push.c \
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LFLAGS)
+	@$(MAKE_SILENT) -C $(LIBFT)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LFLAGS)
+	@echo "$(NAME) created"
 
 clean:
-	$(RM) $(OBJS)
-	make -C $(LIBFT) clean
+	@$(RM) $(OBJS)
+	@$(MAKE_SILENT) -C $(LIBFT) clean
+	@echo "$(NAME) object files removed"
 
 fclean: clean
-	$(RM) $(NAME)
-	make -C $(LIBFT) fclean
-
+	@$(RM) $(NAME)
+	@$(MAKE_SILENT) -C $(LIBFT) fclean
+	@echo "$(NAME) removed"
+	
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -6,13 +6,13 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:30:27 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/30 18:24:58 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:26:29 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin1(char *stash, char *buf)
+char	*ft_strjoin_gnl(char *stash, char *buf)
 {
 	char	*s3;
 	char	*s3_ptr;

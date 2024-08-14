@@ -6,7 +6,7 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:46 by eedwards          #+#    #+#             */
-/*   Updated: 2024/08/05 11:16:02 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/14 10:33:16 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ long				ft_atoi2(char *str);
 int					ft_check_doubles(t_stack **a);
 int					ft_check_valid(char *arg);
 void				ft_error(t_stack **a);
+void				free_split_result(char **argv);
+void				ft_invalid_arg(int argc, char **argv, t_stack **a);
 
 /* ************************************************************************** */
 /*                              STACK UTILITIES                               */
@@ -44,7 +46,7 @@ void				ft_stackadd_back(t_stack **lst, t_stack *new);
 void				ft_stackclear(t_stack **lst);
 
 /* ************************************************************************** */
-/*                                     SORT                                   */
+/*                                   SORT                                     */
 /* ************************************************************************** */
 void				ft_sort(t_stack **a, t_stack **b);
 void				ft_sort3(t_stack **a);
@@ -55,7 +57,7 @@ void				ft_sort_push_b_til_3(t_stack **a, t_stack **b);
 void				ft_sort_push_a(t_stack **a, t_stack **b);
 
 /* ************************************************************************** */
-/*                            SORT UTILITIES                                  */
+/*                              SORT UTILITIES                                */
 /* ************************************************************************** */
 int					ft_check_sorted(t_stack *a);
 int					ft_find_index(t_stack *a, int nbr);

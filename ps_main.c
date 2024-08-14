@@ -6,13 +6,13 @@
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 11:07:39 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/30 18:01:00 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/14 10:33:29 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split_result(char **argv);
+//void	free_split_result(char **argv);
 
 //main function, checks that argc is more than 1, uses ft_split to make a 
 //single string of values into an array of strings, lists args in t_stack a and

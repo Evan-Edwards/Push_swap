@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eedwards <eedwards@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:55:16 by eedwards          #+#    #+#             */
-/*   Updated: 2024/07/18 14:10:18 by eedwards         ###   ########.fr       */
+/*   Updated: 2024/08/13 10:35:46 by eedwards         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static char	*fill_stash(int fd, char **stash, char *buf)
 		if (b_read == 0)
 			break ;
 		temp = *stash;
-		*stash = ft_strjoin1(*stash, buf);
+		*stash = ft_strjoin_gnl(*stash, buf);
 		free(temp);
 	}
 	return (*stash);
